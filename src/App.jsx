@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 
-const API_KEY = "2618207e60f34689b4e65252262302"; // your WeatherAPI.com key
+const API_KEY = "2618207e60f34689b4e65252262302"; //api key
 
 function App() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [unit, setUnit] = useState("C"); // "C" or "F"
+  const [unit, setUnit] = useState("C"); 
   const [history, setHistory] = useState([]);
 
   // Load history from localStorage
@@ -43,7 +43,7 @@ function App() {
       // Update history
       setHistory(prev => {
         const updated = [query, ...prev.filter(c => c !== query)];
-        return updated.slice(0, 5);
+        return updated.slice(0, 10);
       });
     } catch (err) {
       setError(err.message);
